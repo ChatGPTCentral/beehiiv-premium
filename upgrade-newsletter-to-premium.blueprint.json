@@ -1,0 +1,108 @@
+{
+  "name": "Upgrade newsletter to premium",
+  "flow": [
+    {
+      "id": 1,
+      "module": "util:SetVariable2",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "name": "email",
+        "value": "subscriber@example.com"
+      },
+      "metadata": {
+        "designer": { "x": 0, "y": 0 },
+        "restore": {},
+        "expect": [
+          { "name": "name", "type": "text", "label": "Variable name" }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "module": "beehiiv:ListSubscribers",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "email": "{{1.email}}",
+        "stats": false,
+        "custom_fields": false,
+        "referrals": false,
+        "limit": 1
+      },
+      "metadata": {
+        "designer": { "x": 300, "y": 0 }
+      }
+    },
+    {
+      "id": 3,
+      "module": "stripe:searchCustomers",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "email": "{{1.email}}",
+        "limit": 100
+      },
+      "metadata": {
+        "designer": { "x": 600, "y": 0 }
+      }
+    },
+    {
+      "id": 4,
+      "module": "stripe:makeAnApiCall",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "url": "/v1/subscriptions",
+        "method": "GET",
+        "qs": [
+          { "key": "customer", "value": "{{3.id}}" },
+          { "key": "status", "value": "active" },
+          { "key": "limit", "value": "1" }
+        ]
+      },
+      "metadata": {
+        "designer": { "x": 900, "y": 0 }
+      }
+    },
+    {
+      "id": 5,
+      "module": "beehiiv:UpdateSubscriber",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "subscriptionId": "{{2.id}}",
+        "tier": "premium",
+        "stripe_customer_id": "{{3.id}}",
+        "unsubscribe": false,
+        "update": false
+      },
+      "filter": {
+        "name": "Customer has an active Stripe subscription",
+        "conditions": [
+          [
+            { "a": "{{4.body.data[1].id}}", "o": "exist" }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": { "x": 1200, "y": 0 }
+      }
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false
+    },
+    "designer": { "orphans": [] }
+  }
+}

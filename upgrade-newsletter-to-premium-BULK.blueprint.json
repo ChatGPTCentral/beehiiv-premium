@@ -1,0 +1,432 @@
+{
+    "name": "Upgrade newsletter to premium (BULK - paste list)",
+    "flow": [
+        {
+            "id": 1,
+            "module": "util:SetVariable2",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "name": "emails",
+                "scope": "roundtrip",
+                "value": "email1@example.com\nemail2@example.com\nemail3@example.com"
+            },
+            "metadata": {
+                "designer": {
+                    "x": -100,
+                    "y": -3
+                },
+                "restore": {
+                    "expect": {
+                        "scope": {
+                            "label": "One cycle"
+                        }
+                    }
+                },
+                "expect": [
+                    {
+                        "name": "name",
+                        "type": "text",
+                        "label": "Variable name",
+                        "required": true
+                    },
+                    {
+                        "name": "scope",
+                        "type": "select",
+                        "label": "Variable lifetime",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "roundtrip",
+                                "execution"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "value",
+                        "type": "any",
+                        "label": "Variable value"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "emails",
+                        "label": "emails",
+                        "type": "any"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 7,
+            "module": "builtin:BasicFeeder",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "array": "{{split(replace(1.emails; \"/[\\r\\n;, ]+/g\"; \",\"); \",\")}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 130,
+                    "y": -3
+                },
+                "restore": {},
+                "expect": [
+                    {
+                        "name": "array",
+                        "type": "array",
+                        "label": "Array"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 6,
+            "module": "beehiiv:CreateSubscriber",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 13988394
+            },
+            "filter": {
+                "name": "Valid email (skip blank lines)",
+                "conditions": [
+                    [
+                        {
+                            "a": "{{7.value}}",
+                            "o": "text:contain",
+                            "b": "@"
+                        }
+                    ]
+                ]
+            },
+            "mapper": {
+                "email": "{{7.value}}",
+                "reactivate_existing": true,
+                "send_welcome_email": false,
+                "double_opt_override": "not_set",
+                "tier": "premium"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 360,
+                    "y": -283
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My beehiiv (API Key) connection",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "beehiiv"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "double_opt_override": {
+                            "label": "Not Set"
+                        },
+                        "tier": {
+                            "label": "Premium"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:beehiiv4,beehiiv",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "email",
+                        "type": "email",
+                        "label": "Email address",
+                        "required": true
+                    },
+                    {
+                        "name": "reactivate_existing",
+                        "type": "boolean",
+                        "label": "Reactivate Existing?",
+                        "required": true
+                    },
+                    {
+                        "name": "send_welcome_email",
+                        "type": "boolean",
+                        "label": "Send Welcome Email?",
+                        "required": true
+                    },
+                    {
+                        "name": "double_opt_override",
+                        "type": "select",
+                        "label": "Double Opt-in Setting",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "on",
+                                "off",
+                                "not_set"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "tier",
+                        "type": "select",
+                        "label": "Tier",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "free",
+                                "premium"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "stripe_customer_id",
+                        "type": "text",
+                        "label": "Stripe Customer ID"
+                    }
+                ],
+                "advanced": true
+            }
+        },
+        {
+            "id": 2,
+            "module": "beehiiv:ListSubscribers",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 13988394
+            },
+            "mapper": {
+                "email": "{{7.value}}",
+                "stats": false,
+                "custom_fields": false,
+                "referrals": false,
+                "limit": "1",
+                "direction": "asc",
+                "order_by": "created",
+                "status": "all",
+                "tier": "all"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My beehiiv (API Key) connection",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "beehiiv"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "direction": {
+                            "label": "Ascending"
+                        },
+                        "order_by": {
+                            "label": "Created"
+                        },
+                        "status": {
+                            "label": "All"
+                        },
+                        "tier": {
+                            "label": "All"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:beehiiv4,beehiiv",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "module": "stripe:searchCustomers",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 5269488
+            },
+            "mapper": {
+                "email": "{{7.value}}",
+                "filter": [],
+                "expand": [],
+                "limit": "100"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 840,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "Stripe Beehiiv",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "stripe"
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:stripe,stripe2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 4,
+            "module": "stripe:makeAnApiCall",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 5269488
+            },
+            "mapper": {
+                "url": "/v1/subscriptions",
+                "method": "GET",
+                "headers": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "qs": [
+                    {
+                        "key": "customer",
+                        "value": "{{3.id}}"
+                    },
+                    {
+                        "key": "status",
+                        "value": "active"
+                    },
+                    {
+                        "key": "limit",
+                        "value": "1"
+                    }
+                ],
+                "body": ""
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1080,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "Stripe Beehiiv",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "stripe"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "method": {
+                            "label": "GET"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:stripe,stripe2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 5,
+            "module": "beehiiv:UpdateSubscriber",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 13988394
+            },
+            "filter": {
+                "name": "Customer has an active Stripe subscription",
+                "conditions": [
+                    [
+                        {
+                            "a": "{{4.body.data[1].id}}",
+                            "o": "exist"
+                        }
+                    ]
+                ]
+            },
+            "mapper": {
+                "update": false,
+                "subscriptionId": "{{2.id}}",
+                "tier": "premium",
+                "stripe_customer_id": "{{3.id}}",
+                "unsubscribe": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1320,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My beehiiv (API Key) connection",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "beehiiv"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "tier": {
+                            "label": "Premium"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:beehiiv4,beehiiv",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "advanced": true
+            }
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu2.make.com",
+        "notes": []
+    }
+}
