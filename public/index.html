@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Upgrade to Premium</title>
+    <style>
+      :root { color-scheme: light dark; }
+      * { box-sizing: border-box; }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        margin: 0; padding: 2rem 1rem; line-height: 1.45;
+        background: #0b0c10; color: #e7e9ee;
+        display: flex; justify-content: center;
+      }
+      main { width: 100%; max-width: 30rem; }
+      h1 { font-size: 1.35rem; margin: 0 0 .25rem; }
+      p.sub { margin: 0 0 1.5rem; color: #9aa0ad; font-size: .9rem; }
+      label { display: block; font-size: .8rem; color: #b9c0cc; margin: 1rem 0 .35rem; }
+      input[type="email"], input[type="password"], select {
+        width: 100%; padding: .6rem .7rem; border-radius: .55rem;
+        border: 1px solid #2a2d36; background: #15171d; color: #e7e9ee; font-size: .95rem;
+      }
+      .row { display: flex; gap: 1rem; }
+      .row > div { flex: 1; }
+      .check { display: flex; align-items: center; gap: .5rem; margin-top: 1rem; font-size: .9rem; color: #b9c0cc; }
+      .check input { width: auto; }
+      button {
+        margin-top: 1.5rem; width: 100%; padding: .7rem; border: 0; border-radius: .55rem;
+        background: #5b8cff; color: #fff; font-size: 1rem; font-weight: 600; cursor: pointer;
+      }
+      button:disabled { opacity: .55; cursor: default; }
+      #out { margin-top: 1.5rem; padding: 1rem; border-radius: .6rem; display: none; font-size: .9rem; }
+      #out.ok { background: #0f2a17; border: 1px solid #1f7a44; }
+      #out.skip { background: #2a240f; border: 1px solid #7a5f1f; }
+      #out.err { background: #2a0f12; border: 1px solid #7a1f2a; }
+      #out .msg { font-weight: 600; margin-bottom: .5rem; }
+      pre { margin: 0; white-space: pre-wrap; word-break: break-word; color: #c7cdd8; font-size: .8rem; }
+      footer { margin-top: 2rem; color: #6b7280; font-size: .75rem; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Upgrade newsletter subscriber to Premium</h1>
+      <p class="sub">Looks up the email in beehiiv, finds the paying Stripe customer, and sets the subscription to Premium.</p>
+
+      <form id="form">
+        <label for="email">Subscriber email</label>
+        <input id="email" name="email" type="email" required placeholder="name@example.com" autocomplete="off" />
+
+        <label for="token">Access token</label>
+        <input id="token" name="token" type="password" required placeholder="UPGRADE_API_TOKEN" autocomplete="off" />
+
+        <div class="row">
+          <div>
+            <label for="status">Stripe status</label>
+            <select id="status" name="status">
+              <option value="live">live (active/trialing/past_due/unpaid)</option>
+              <option value="active">active only</option>
+              <option value="all">all (incl. canceled)</option>
+            </select>
+          </div>
+        </div>
+
+        <label class="check"><input id="remember" type="checkbox" /> Remember token in this browser</label>
+        <label class="check"><input id="dryRun" name="dryRun" type="checkbox" /> Dry run (preview, no write)</label>
+        <label class="check"><input id="allowNoStripe" name="allowNoStripe" type="checkbox" /> Upgrade even with no paying Stripe customer</label>
+
+        <button id="submit" type="submit">Upgrade to Premium</button>
+      </form>
+
+      <div id="out"><div class="msg"></div><pre></pre></div>
+
+      <footer>Keep this URL private. The action is gated by the access token; secrets live in Vercel env vars.</footer>
+    </main>
+
+    <script>
+      const $ = (id) => document.getElementById(id);
+      const TOKEN_KEY = "beehiiv_premium_token";
+
+      // Restore remembered token.
+      const saved = localStorage.getItem(TOKEN_KEY);
+      if (saved) { $("token").value = saved; $("remember").checked = true; }
+
+      $("form").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const out = $("out");
+        const btn = $("submit");
+        const token = $("token").value.trim();
+
+        if ($("remember").checked) localStorage.setItem(TOKEN_KEY, token);
+        else localStorage.removeItem(TOKEN_KEY);
+
+        const payload = {
+          email: $("email").value.trim(),
+          token,
+          status: $("status").value,
+          dryRun: $("dryRun").checked,
+          allowNoStripe: $("allowNoStripe").checked,
+        };
+
+        btn.disabled = true;
+        btn.textContent = "Working…";
+        out.style.display = "none";
+
+        try {
+          const res = await fetch("/api/upgrade", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          const data = await res.json();
+
+          let cls = "err";
+          if (res.ok && (data.outcome === "upgraded" || data.outcome === "would_upgrade")) cls = "ok";
+          else if (res.status === 422) cls = "skip";
+
+          out.className = cls;
+          out.querySelector(".msg").textContent = data.message || data.error || `HTTP ${res.status}`;
+          out.querySelector("pre").textContent = JSON.stringify(data, null, 2);
+          out.style.display = "block";
+        } catch (err) {
+          out.className = "err";
+          out.querySelector(".msg").textContent = "Request failed";
+          out.querySelector("pre").textContent = String(err);
+          out.style.display = "block";
+        } finally {
+          btn.disabled = false;
+          btn.textContent = "Upgrade to Premium";
+        }
+      });
+    </script>
+  </body>
+</html>
