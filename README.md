@@ -79,6 +79,50 @@ while read -r email; do
 done < emails.txt
 ```
 
+## Deploy as a web form (Vercel)
+
+The same core logic is also exposed as a tiny web app so you can run an upgrade
+by pasting an email and clicking a button — no terminal needed.
+
+```
+public/index.html   →  POST /api/upgrade  →  upgradeEmailToPremium()  (src/)
+```
+
+The browser never sees your beehiiv/Stripe keys — they stay in the serverless
+function. The action is gated by a shared **access token**.
+
+### Environment variables (set in the Vercel dashboard)
+
+| Variable | Required | Notes |
+| --- | --- | --- |
+| `BEEHIIV_API_KEY` | ✅ | |
+| `BEEHIIV_PUBLICATION_ID` | ✅ | |
+| `STRIPE_API_KEY` | ✅ | |
+| `UPGRADE_API_TOKEN` | ✅ | Shared secret for the form/endpoint. Generate with `openssl rand -hex 32`. |
+| `BEEHIIV_PREMIUM_TIER_ID` | ⬜ | Only if you have multiple premium tiers. |
+
+Add them under **Project → Settings → Environment Variables**, then redeploy so
+the function picks them up. Until they're set, the endpoint returns a clear
+`500 … not configured` error.
+
+### The endpoint
+
+`POST /api/upgrade` — JSON body `{ email, token, status?, dryRun?, allowNoStripe? }`.
+The token may instead be sent as `Authorization: Bearer <token>` or an
+`X-Upgrade-Token` header (handy for webhooks).
+
+```bash
+curl -X POST https://<your-app>.vercel.app/api/upgrade \
+  -H "Content-Type: application/json" \
+  -d '{"email":"rfoisy@injurylawyercanada.com","token":"<UPGRADE_API_TOKEN>","dryRun":true}'
+```
+
+Responses: `200` upgraded / would-upgrade · `422` nothing to do · `400/401` bad
+request / bad token · `500/502` config or upstream-API error.
+
+> Keep the URL private and the token strong. For an extra layer, enable Vercel
+> **Deployment Protection** on the project.
+
 ## How it maps to the relay export
 
 | relay step | This tool |

@@ -12,15 +12,16 @@
     "node": ">=18"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.build.json",
     "start": "node dist/cli.js",
     "upgrade": "node dist/cli.js",
     "dev": "tsx src/cli.ts",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc -p tsconfig.json",
     "test": "node --import tsx --test src/**/*.test.ts"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
+    "@vercel/node": "^5.8.17",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2"
   }
