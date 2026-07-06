@@ -3,32 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diogo &amp; Co — Technology Strategy, Digital &amp; AI Transformation</title>
-  <meta name="description" content="Diogo & Co is a boutique advisory led by Silvia Diogo, former Equity Partner at Deloitte and KPMG. Board-level strategy, AI and digital transformation for Financial Services, Insurance and Private Equity." />
+  <title>Diogo &amp; Co — Technology, Digital &amp; AI Transformation for Financial Services</title>
+  <meta name="description" content="Diogo & Co is a boutique Financial Services advisory led by Silvia Diogo, former Equity Partner at Deloitte and KPMG. Board-level strategy and hands-on delivery in AI, cloud, data and cost transformation." />
   <meta name="author" content="Silvia Diogo" />
-  <meta property="og:title" content="Diogo & Co — Technology Strategy, Digital & AI Transformation" />
-  <meta property="og:description" content="Board-level advisory on AI and digital transformation across Financial Services, Insurance and Private Equity. Led by Silvia Diogo, former Equity Partner at Deloitte & KPMG." />
+  <meta property="og:title" content="Diogo & Co — Technology, Digital & AI Transformation" />
+  <meta property="og:description" content="Board-level advisory and delivery for Financial Services, Insurance and Private Equity. Led by Silvia Diogo, former Equity Partner at Deloitte & KPMG." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --navy:        #0d1b2a;
-      --navy-2:      #12263a;
-      --navy-3:      #1b3a57;
-      --ink:         #101820;
-      --paper:       #f7f5f0;
-      --paper-2:     #efece4;
-      --line:        #d9d4c8;
-      --gold:        #b8893b;
-      --gold-soft:   #cda35a;
-      --muted:       #5c6875;
-      --muted-light: #9aa7b2;
-      --white:       #ffffff;
-      --serif: "Fraunces", Georgia, "Times New Roman", serif;
-      --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --maxw: 1160px;
+      --ink:        #172420;
+      --pine:       #0f3b34;
+      --pine-2:     #0a2c27;
+      --pine-3:     #145147;
+      --porcelain:  #f5f2ea;
+      --porcelain-2:#efeadf;
+      --sand:       #e9e3d5;
+      --copper:     #bd6a3c;
+      --copper-2:   #a85a30;
+      --slate:      #5c6b65;
+      --slate-light:#8b988f;
+      --line:       #d9d3c4;
+      --line-dark:  rgba(255,255,255,0.14);
+      --white:      #ffffff;
+      --sans: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --maxw: 1200px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -36,246 +37,245 @@
     body {
       font-family: var(--sans);
       color: var(--ink);
-      background: var(--paper);
-      line-height: 1.65;
+      background: var(--porcelain);
+      line-height: 1.68;
       font-size: 17px;
+      font-weight: 400;
       -webkit-font-smoothing: antialiased;
     }
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
-    ::selection { background: var(--gold); color: #fff; }
+    ::selection { background: var(--copper); color: #fff; }
 
-    .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+    .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
 
+    /* Typography system — Lato, light headings + heavy labels */
+    h1, h2, h3, h4 { font-family: var(--sans); font-weight: 300; line-height: 1.1; letter-spacing: -0.015em; }
+    h1 strong, h2 strong { font-weight: 700; }
     .eyebrow {
-      font-size: 12.5px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: var(--gold);
+      font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--copper);
     }
-    h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.12; letter-spacing: -0.01em; }
+    .display { font-weight: 300; }
+    .accent { color: var(--copper); }
+
+    /* Arrow buttons (Altus-style: label + feather arrow) */
+    .btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-family: var(--sans); font-weight: 700; font-size: 13.5px; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 16px 30px; cursor: pointer; border: 1.5px solid transparent; border-radius: 2px;
+      transition: background 0.22s, color 0.22s, border-color 0.22s, transform 0.15s;
+    }
+    .btn svg { width: 17px; height: 17px; transition: transform 0.22s; }
+    .btn:hover svg { transform: translateX(4px); }
+    .btn-primary { background: var(--copper); color: #fff; }
+    .btn-primary:hover { background: var(--copper-2); }
+    .btn-outline { border-color: var(--line); color: var(--ink); }
+    .btn-outline:hover { border-color: var(--ink); }
+    .btn-onpine { border-color: rgba(255,255,255,0.35); color: #fff; }
+    .btn-onpine:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+    .arrowlink {
+      display: inline-flex; align-items: center; gap: 9px; font-weight: 700; font-size: 13px;
+      letter-spacing: 0.06em; text-transform: uppercase; color: var(--copper);
+    }
+    .arrowlink svg { width: 15px; height: 15px; transition: transform 0.2s; }
+    .arrowlink:hover svg { transform: translateX(4px); }
 
     /* ---------- NAV ---------- */
     header.nav {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(13,27,42,0.86);
-      backdrop-filter: saturate(150%) blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: sticky; top: 0; z-index: 60;
+      background: rgba(245,242,234,0.9);
+      backdrop-filter: saturate(160%) blur(12px);
+      border-bottom: 1px solid var(--line);
     }
-    .nav-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      height: 72px;
-    }
-    .brand { display: flex; align-items: baseline; gap: 10px; color: #fff; }
-    .brand .mark { font-family: var(--serif); font-size: 22px; font-weight: 600; letter-spacing: 0.01em; }
-    .brand .amp { color: var(--gold-soft); }
-    .brand .sub { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted-light); }
-    nav.links { display: flex; align-items: center; gap: 34px; }
-    nav.links a {
-      color: #d6dde4; font-size: 14.5px; font-weight: 500; letter-spacing: 0.01em;
-      transition: color 0.2s;
-    }
-    nav.links a:hover { color: var(--gold-soft); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 78px; }
+    .brand { display: flex; align-items: baseline; gap: 11px; }
+    .brand .mark { font-weight: 300; font-size: 24px; letter-spacing: 0.01em; color: var(--ink); }
+    .brand .mark b { font-weight: 900; }
+    .brand .amp { color: var(--copper); font-weight: 400; }
+    .brand .sub { font-size: 10.5px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--slate); }
+    nav.links { display: flex; align-items: center; gap: 36px; }
+    nav.links a { color: var(--ink); font-size: 14px; font-weight: 700; letter-spacing: 0.02em; transition: color 0.2s; }
+    nav.links a:hover { color: var(--copper); }
     .nav-cta {
-      border: 1px solid rgba(205,163,90,0.55);
-      color: var(--gold-soft) !important;
-      padding: 9px 18px; border-radius: 2px;
-      transition: background 0.2s, color 0.2s;
+      display: inline-flex; align-items: center; gap: 9px;
+      color: #fff !important; background: var(--pine); padding: 12px 22px; border-radius: 2px;
+      font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s;
     }
-    .nav-cta:hover { background: var(--gold); color: #0d1b2a !important; }
-    .menu-toggle { display: none; background: none; border: 0; color: #fff; cursor: pointer; padding: 8px; }
-    .menu-toggle svg { width: 26px; height: 26px; }
+    .nav-cta svg { width: 15px; height: 15px; transition: transform 0.2s; }
+    .nav-cta:hover { background: var(--pine-2); color: #fff !important; }
+    .nav-cta:hover svg { transform: translateX(3px); }
+    .menu-toggle { display: none; background: none; border: 0; color: var(--ink); cursor: pointer; padding: 8px; }
+    .menu-toggle svg { width: 27px; height: 27px; }
 
     /* ---------- HERO ---------- */
-    .hero {
-      position: relative;
-      background:
-        radial-gradient(1100px 520px at 78% -8%, rgba(184,137,59,0.16), transparent 62%),
-        linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
-      color: #eef2f5;
-      overflow: hidden;
+    .hero { position: relative; padding: 104px 0 96px; overflow: hidden; }
+    .hero::before {
+      content: ""; position: absolute; top: -20%; right: -8%; width: 620px; height: 620px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(189,106,60,0.10), transparent 68%); pointer-events: none;
     }
-    .hero::after {
-      content: ""; position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
-      background-size: 64px 64px;
-      mask-image: radial-gradient(760px 520px at 80% 10%, #000 0%, transparent 72%);
-      pointer-events: none;
-    }
-    .hero-inner {
-      position: relative; z-index: 1;
-      display: grid; grid-template-columns: 1.35fr 0.9fr; gap: 56px; align-items: center;
-      padding: 96px 0 104px;
-    }
-    .hero h1 { font-size: clamp(38px, 5.4vw, 68px); color: #fff; margin: 22px 0 26px; }
-    .hero h1 em { font-style: italic; color: var(--gold-soft); }
-    .hero p.lede { font-size: 19px; color: #c3cdd6; max-width: 40ch; margin-bottom: 36px; }
+    .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.5fr 0.9fr; gap: 64px; align-items: center; }
+    .hero h1 { font-size: clamp(42px, 6vw, 78px); color: var(--ink); margin: 26px 0 30px; text-wrap: balance; }
+    .hero p.lede { font-size: 20px; color: var(--slate); max-width: 46ch; margin-bottom: 40px; font-weight: 400; }
     .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-weight: 600; font-size: 15px; letter-spacing: 0.01em;
-      padding: 15px 28px; border-radius: 2px; cursor: pointer;
-      transition: transform 0.15s, background 0.2s, box-shadow 0.2s;
-    }
-    .btn-primary { background: var(--gold); color: #12130f; box-shadow: 0 10px 30px -12px rgba(184,137,59,0.7); }
-    .btn-primary:hover { transform: translateY(-2px); background: var(--gold-soft); }
-    .btn-ghost { border: 1px solid rgba(255,255,255,0.22); color: #eef2f5; }
-    .btn-ghost:hover { border-color: var(--gold-soft); color: #fff; }
 
-    .hero-card {
-      background: rgba(255,255,255,0.045);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 4px;
-      padding: 34px 32px;
-      backdrop-filter: blur(6px);
-    }
-    .hero-card .who { font-family: var(--serif); font-size: 21px; color: #fff; }
-    .hero-card .role { font-size: 13.5px; color: var(--gold-soft); margin: 6px 0 22px; letter-spacing: 0.02em; }
-    .hero-card ul { list-style: none; display: grid; gap: 14px; }
-    .hero-card li { display: flex; gap: 12px; font-size: 14.5px; color: #cdd6de; align-items: flex-start; }
-    .hero-card li::before { content: "—"; color: var(--gold); flex: none; }
+    .profile-card { background: var(--white); border: 1px solid var(--line); border-radius: 4px; padding: 0; overflow: hidden; box-shadow: 0 30px 60px -40px rgba(15,59,52,0.4); }
+    .profile-card .top { background: linear-gradient(155deg, var(--pine) 0%, var(--pine-2) 100%); padding: 30px 30px 26px; color: #fff; }
+    .profile-card .who { font-weight: 300; font-size: 24px; }
+    .profile-card .who b { font-weight: 700; }
+    .profile-card .role { font-size: 12.5px; font-weight: 700; letter-spacing: 0.04em; color: var(--copper); margin-top: 8px; text-transform: none; }
+    .profile-card ul { list-style: none; padding: 24px 30px 28px; display: grid; gap: 15px; }
+    .profile-card li { display: flex; gap: 13px; font-size: 14.5px; color: var(--ink); align-items: flex-start; line-height: 1.45; }
+    .profile-card li svg { width: 17px; height: 17px; color: var(--copper); flex: none; margin-top: 2px; }
 
-    .marquee {
-      position: relative; z-index: 1;
-      border-top: 1px solid rgba(255,255,255,0.09);
-      padding: 26px 0;
-    }
-    .marquee .wrap { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: space-between; }
-    .marquee .label { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted-light); }
-    .logos { display: flex; gap: 34px; flex-wrap: wrap; align-items: center; }
-    .logos span { font-family: var(--serif); font-size: 19px; color: #9fb0bf; letter-spacing: 0.02em; }
+    .clientstrip { border-top: 1px solid var(--line); margin-top: 84px; padding-top: 34px; display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+    .clientstrip .lbl { font-size: 11.5px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate-light); }
+    .clientstrip .names { display: flex; gap: 40px; flex-wrap: wrap; }
+    .clientstrip .names span { font-weight: 900; font-size: 20px; color: var(--slate); letter-spacing: 0.01em; }
+
+    /* ---------- STATEMENT ---------- */
+    .statement { padding: 96px 0; background: var(--porcelain-2); text-align: center; }
+    .statement h2 { font-size: clamp(28px, 4vw, 46px); color: var(--ink); max-width: 20ch; margin: 18px auto 0; text-wrap: balance; }
 
     /* ---------- SECTION SCAFFOLD ---------- */
-    section { padding: 104px 0; }
-    .sec-head { max-width: 720px; margin-bottom: 56px; }
-    .sec-head h2 { font-size: clamp(30px, 3.8vw, 44px); margin: 16px 0 18px; color: var(--ink); }
-    .sec-head p { color: var(--muted); font-size: 18px; }
-    .alt { background: var(--paper-2); }
+    section { padding: 108px 0; }
+    .sec-head { max-width: 760px; margin-bottom: 60px; }
+    .sec-head h2 { font-size: clamp(32px, 4.2vw, 50px); margin: 18px 0 18px; color: var(--ink); text-wrap: balance; }
+    .sec-head p { color: var(--slate); font-size: 18.5px; font-weight: 400; }
 
-    /* ---------- ABOUT ---------- */
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-    .about-body p { color: #33404c; margin-bottom: 20px; font-size: 17.5px; }
-    .about-body p:first-child { font-size: 20px; color: var(--ink); font-family: var(--serif); line-height: 1.5; }
-    .credos { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--line); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
-    .credo { background: var(--paper); padding: 26px 24px; }
-    .credo .n { font-family: var(--serif); font-size: 34px; color: var(--gold); }
-    .credo .t { font-size: 14px; color: var(--muted); margin-top: 4px; }
+    /* ---------- METRICS BAND (pine) ---------- */
+    .band { background: linear-gradient(160deg, var(--pine) 0%, var(--pine-2) 100%); color: #fff; position: relative; overflow: hidden; }
+    .band::before {
+      content: ""; position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 72px 72px; mask-image: radial-gradient(700px 400px at 20% 0%, #000, transparent 75%); pointer-events: none;
+    }
+    .band .sec-head h2 { color: #fff; }
+    .band .sec-head p { color: #b6c4bf; }
+    .band .eyebrow { color: var(--copper); }
+    .metrics { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+    .metric { border-top: 2px solid var(--copper); padding-top: 22px; }
+    .metric .fig { font-weight: 300; font-size: clamp(44px, 5.4vw, 62px); color: #fff; line-height: 1; font-variant-numeric: tabular-nums; }
+    .metric .fig b { font-weight: 700; color: var(--copper); }
+    .metric .cap { font-size: 14.5px; color: #aebbb6; margin-top: 14px; font-weight: 400; }
 
     /* ---------- SERVICES ---------- */
-    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .card {
-      background: var(--white); border: 1px solid var(--line); border-radius: 5px;
-      padding: 34px 30px; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line); }
+    .svc {
+      padding: 42px 34px 40px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line);
+      transition: background 0.22s; position: relative;
     }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 24px 50px -30px rgba(13,27,42,0.4); border-color: var(--gold-soft); }
-    .card .ic {
-      width: 46px; height: 46px; border-radius: 3px; display: grid; place-items: center;
-      background: linear-gradient(135deg, var(--navy-3), var(--navy)); color: var(--gold-soft); margin-bottom: 22px;
-    }
-    .card .ic svg { width: 24px; height: 24px; stroke-width: 1.5; }
-    .card h3 { font-size: 21px; margin-bottom: 10px; }
-    .card p { color: var(--muted); font-size: 15.5px; }
-    .card ul { list-style: none; margin-top: 16px; display: grid; gap: 8px; }
-    .card li { font-size: 14px; color: #43505c; padding-left: 18px; position: relative; }
-    .card li::before { content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+    .svc-grid .svc:nth-child(3n) { border-right: 0; }
+    .svc:hover { background: var(--white); }
+    .svc .num { font-size: 12.5px; font-weight: 700; letter-spacing: 0.1em; color: var(--copper); }
+    .svc h3 { font-size: 22px; font-weight: 700; margin: 14px 0 12px; letter-spacing: -0.01em; }
+    .svc p { color: var(--slate); font-size: 15.5px; }
+    .svc ul { list-style: none; margin-top: 16px; display: grid; gap: 9px; }
+    .svc li { font-size: 14px; color: var(--ink); padding-left: 20px; position: relative; }
+    .svc li::before { content: ""; position: absolute; left: 0; top: 9px; width: 7px; height: 1.5px; background: var(--copper); }
 
-    /* ---------- EXPERTISE STRIP ---------- */
-    .pills { display: flex; flex-wrap: wrap; gap: 12px; }
-    .pill {
-      border: 1px solid var(--line); background: var(--white);
-      padding: 10px 18px; border-radius: 100px; font-size: 14.5px; color: #3a4753; font-weight: 500;
-    }
+    /* ---------- EXPERTISE ---------- */
+    .pills { display: flex; flex-wrap: wrap; gap: 11px; }
+    .pill { border: 1px solid var(--line); background: var(--white); padding: 11px 20px; border-radius: 2px; font-size: 14px; color: var(--ink); font-weight: 700; letter-spacing: 0.01em; }
 
-    /* ---------- EXPERIENCE / TIMELINE ---------- */
-    .timeline { border-left: 2px solid var(--line); margin-left: 8px; }
-    .tl-item { position: relative; padding: 0 0 42px 34px; }
-    .tl-item:last-child { padding-bottom: 0; }
-    .tl-item::before {
-      content: ""; position: absolute; left: -9px; top: 4px; width: 16px; height: 16px;
-      border-radius: 50%; background: var(--paper); border: 3px solid var(--gold);
+    /* ---------- TRACK RECORD ---------- */
+    .cases { display: grid; gap: 0; border-top: 1px solid var(--line); }
+    .case {
+      display: grid; grid-template-columns: 200px 1fr auto; gap: 36px; align-items: baseline;
+      padding: 34px 0; border-bottom: 1px solid var(--line); transition: padding-left 0.25s;
     }
-    .tl-item .yr { font-size: 13px; letter-spacing: 0.06em; color: var(--gold); font-weight: 600; text-transform: uppercase; }
-    .tl-item h3 { font-size: 21px; margin: 6px 0 4px; }
-    .tl-item .org { font-size: 14.5px; color: var(--muted); font-weight: 500; }
-    .tl-item p { color: #43505c; font-size: 15.5px; margin-top: 10px; }
+    .case:hover { padding-left: 12px; }
+    .case .yr { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--copper); }
+    .case h3 { font-size: 23px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .case .org { font-size: 14px; font-weight: 700; color: var(--slate); text-transform: uppercase; letter-spacing: 0.05em; }
+    .case p { color: var(--slate); font-size: 15.5px; margin-top: 12px; max-width: 60ch; }
+    .case .side { font-size: 13px; color: var(--slate-light); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
 
-    /* ---------- METRICS BAND ---------- */
-    .band {
-      background: linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
-      color: #eef2f5;
-    }
-    .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
-    .metric .fig { font-family: var(--serif); font-size: clamp(40px, 5vw, 56px); color: #fff; line-height: 1; }
-    .metric .fig span { color: var(--gold-soft); }
-    .metric .cap { font-size: 14px; color: #a9b6c1; margin-top: 12px; letter-spacing: 0.01em; }
+    /* ---------- ABOUT ---------- */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .about-body p { color: var(--ink); margin-bottom: 20px; font-size: 17.5px; }
+    .about-body p.big { font-size: 24px; font-weight: 300; line-height: 1.42; color: var(--ink); letter-spacing: -0.01em; }
+    .about-body p.big b { font-weight: 700; }
+    .quote-block { background: var(--pine); color: #fff; border-radius: 4px; padding: 44px 40px; }
+    .quote-block .mk { font-size: 60px; font-weight: 900; line-height: 0.5; color: var(--copper); }
+    .quote-block p { font-size: 19px; font-weight: 300; line-height: 1.5; margin: 14px 0 24px; }
+    .quote-block .by { font-size: 14px; font-weight: 700; }
+    .quote-block .by span { display: block; font-weight: 400; color: #a9b7b1; margin-top: 3px; }
 
-    /* ---------- TESTIMONIALS ---------- */
-    .quotes { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .quote { background: var(--white); border: 1px solid var(--line); border-radius: 5px; padding: 34px 32px; }
-    .quote .mark { font-family: var(--serif); font-size: 56px; line-height: 0.6; color: var(--gold); }
-    .quote p { font-size: 17.5px; color: #2a3742; font-family: var(--serif); font-style: italic; line-height: 1.5; margin: 8px 0 22px; }
-    .quote .by { font-size: 14px; font-weight: 600; color: var(--ink); }
-    .quote .by span { display: block; font-weight: 400; color: var(--muted); font-size: 13px; margin-top: 2px; }
+    /* ---------- RECOGNITION ---------- */
+    .rec { background: var(--sand); }
+    .awards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 30px; }
+    .award { background: var(--white); border: 1px solid var(--line); border-radius: 4px; padding: 30px 32px; }
+    .award .mk { font-size: 54px; font-weight: 900; line-height: 0.5; color: var(--copper); }
+    .award p { font-size: 18px; font-weight: 300; line-height: 1.5; color: var(--ink); margin: 8px 0 22px; }
+    .award .by { font-size: 13.5px; font-weight: 700; color: var(--ink); }
+    .award .by span { display: block; font-weight: 400; color: var(--slate); font-size: 13px; margin-top: 2px; }
 
     /* ---------- CONTACT ---------- */
-    .contact { background: linear-gradient(180deg, var(--navy-2) 0%, var(--navy) 100%); color: #eef2f5; }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .contact h2 { font-size: clamp(32px, 4vw, 48px); color: #fff; }
-    .contact h2 em { font-style: italic; color: var(--gold-soft); }
-    .contact p.lede { color: #bcc7d0; font-size: 18px; margin: 18px 0 30px; max-width: 44ch; }
-    .contact .detail { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; color: #cfd8df; font-size: 15.5px; }
-    .contact .detail svg { width: 20px; height: 20px; color: var(--gold-soft); flex: none; }
+    .contact { background: linear-gradient(160deg, var(--pine-2) 0%, var(--pine) 100%); color: #fff; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .contact .eyebrow { color: var(--copper); }
+    .contact h2 { font-size: clamp(34px, 4.4vw, 52px); color: #fff; margin: 16px 0 20px; text-wrap: balance; }
+    .contact p.lede { color: #b6c4bf; font-size: 18.5px; margin-bottom: 32px; max-width: 44ch; font-weight: 400; }
+    .contact .detail { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; color: #d3dcd8; font-size: 15.5px; }
+    .contact .detail svg { width: 20px; height: 20px; color: var(--copper); flex: none; }
 
-    form { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 32px; }
-    .field { margin-bottom: 18px; }
-    .field label { display: block; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 8px; }
+    form { background: rgba(255,255,255,0.05); border: 1px solid var(--line-dark); border-radius: 5px; padding: 34px; }
+    .field { margin-bottom: 20px; }
+    .field label { display: block; font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #9fb0aa; margin-bottom: 9px; }
     .field input, .field textarea {
-      width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.16);
-      border-radius: 3px; padding: 13px 15px; color: #fff; font-family: var(--sans); font-size: 15px;
-      transition: border-color 0.2s, background 0.2s;
+      width: 100%; background: rgba(255,255,255,0.06); border: 1px solid var(--line-dark); border-radius: 2px;
+      padding: 13px 15px; color: #fff; font-family: var(--sans); font-size: 15px; transition: border-color 0.2s, background 0.2s;
     }
-    .field input:focus, .field textarea:focus { outline: none; border-color: var(--gold-soft); background: rgba(255,255,255,0.09); }
-    .field textarea { resize: vertical; min-height: 110px; }
-    form .btn-primary { width: 100%; justify-content: center; border: 0; }
-    form .note { font-size: 12.5px; color: var(--muted-light); margin-top: 14px; text-align: center; }
+    .field input:focus, .field textarea:focus { outline: none; border-color: var(--copper); background: rgba(255,255,255,0.09); }
+    .field textarea { resize: vertical; min-height: 112px; }
+    form .btn { width: 100%; justify-content: center; border: 0; }
+    form .note { font-size: 12.5px; color: #8ea19a; margin-top: 15px; text-align: center; }
 
     /* ---------- FOOTER ---------- */
-    footer.site { background: var(--ink); color: #9aa7b2; padding: 48px 0 40px; }
+    footer.site { background: var(--ink); color: #97a49e; padding: 52px 0 42px; }
     .foot-inner { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
-    .foot-inner .brand .mark { font-size: 20px; }
-    .foot-links { display: flex; gap: 26px; font-size: 14px; }
-    .foot-links a:hover { color: var(--gold-soft); }
-    .foot-legal { border-top: 1px solid rgba(255,255,255,0.08); margin-top: 34px; padding-top: 22px; font-size: 13px; color: #6b7783; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .foot-inner .brand .mark { color: #fff; font-size: 21px; }
+    .foot-inner .brand .sub { color: #6f7d77; }
+    .foot-links { display: flex; gap: 28px; font-size: 13.5px; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; }
+    .foot-links a:hover { color: var(--copper); }
+    .foot-legal { border-top: 1px solid rgba(255,255,255,0.08); margin-top: 36px; padding-top: 24px; font-size: 13px; color: #6f7d77; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 
-    /* ---------- REVEAL ---------- */
-    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    /* ---------- REVEAL (fadeInUp) ---------- */
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+      .btn svg, .arrowlink svg, .nav-cta svg { transition: none; }
+    }
 
     /* ---------- RESPONSIVE ---------- */
-    @media (max-width: 940px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 44px; padding: 72px 0 80px; }
-      .about-grid, .contact-grid, .quotes { grid-template-columns: 1fr; gap: 40px; }
-      .cards { grid-template-columns: 1fr 1fr; }
-      .metrics { grid-template-columns: 1fr 1fr; gap: 40px 24px; }
+    @media (max-width: 960px) {
+      .hero-inner, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .svc-grid { grid-template-columns: 1fr 1fr; }
+      .svc-grid .svc:nth-child(3n) { border-right: 1px solid var(--line); }
+      .svc-grid .svc:nth-child(2n) { border-right: 0; }
+      .metrics { grid-template-columns: 1fr 1fr; gap: 40px 30px; }
+      .awards { grid-template-columns: 1fr; }
+      .case { grid-template-columns: 130px 1fr; }
+      .case .side { display: none; }
       nav.links { display: none; }
       .menu-toggle { display: block; }
       nav.links.open {
-        display: flex; position: absolute; top: 72px; left: 0; right: 0;
-        flex-direction: column; align-items: flex-start; gap: 4px;
-        background: var(--navy-2); padding: 18px 28px 26px; border-bottom: 1px solid rgba(255,255,255,0.1);
+        display: flex; position: absolute; top: 78px; left: 0; right: 0; flex-direction: column; align-items: flex-start;
+        gap: 2px; background: var(--porcelain); padding: 18px 32px 26px; border-bottom: 1px solid var(--line);
       }
-      nav.links.open a { width: 100%; padding: 10px 0; }
+      nav.links.open a { width: 100%; padding: 11px 0; }
       .nav-cta { margin-top: 8px; }
     }
     @media (max-width: 560px) {
-      section { padding: 72px 0; }
-      .cards { grid-template-columns: 1fr; }
-      .credos { grid-template-columns: 1fr 1fr; }
+      section, .statement { padding: 72px 0; }
+      .svc-grid { grid-template-columns: 1fr; }
+      .svc-grid .svc { border-right: 0 !important; }
+      .case { grid-template-columns: 1fr; gap: 8px; }
       body { font-size: 16px; }
-      .wrap { padding: 0 20px; }
+      .wrap { padding: 0 22px; }
+      .clientstrip { margin-top: 56px; }
     }
   </style>
 </head>
@@ -285,7 +285,7 @@
   <header class="nav">
     <div class="wrap nav-inner">
       <a href="#top" class="brand" aria-label="Diogo & Co home">
-        <span class="mark">Diogo <span class="amp">&amp;</span> Co</span>
+        <span class="mark">Diogo <span class="amp">&amp;</span> <b>Co</b></span>
         <span class="sub">Advisory</span>
       </a>
       <nav class="links" id="navlinks">
@@ -293,8 +293,10 @@
         <a href="#services">Services</a>
         <a href="#expertise">Expertise</a>
         <a href="#experience">Track Record</a>
-        <a href="#voices">Recognition</a>
-        <a href="#contact" class="nav-cta">Start a conversation</a>
+        <a href="#recognition">Recognition</a>
+        <a href="#contact" class="nav-cta">Contact us
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
       </nav>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -303,149 +305,126 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero" id="top" style="padding:0;">
+  <section class="hero" id="top">
     <div class="wrap hero-inner">
-      <div>
-        <span class="eyebrow">Technology Strategy · Digital &amp; AI Transformation</span>
-        <h1>Board-level clarity for <em>transformation</em> that actually lands.</h1>
-        <p class="lede">Diogo &amp; Co is a boutique advisory helping Executive Committees and Boards shape resilient, future-ready technology strategies — and deliver them.</p>
+      <div class="reveal">
+        <span class="eyebrow">Technology · Digital &amp; AI Transformation</span>
+        <h1>We help boards drive positive <strong class="accent">transformation</strong> in Financial Services.</h1>
+        <p class="lede">Diogo &amp; Co is a boutique advisory led by Silvia Diogo — former Equity Partner at Deloitte &amp; KPMG — combining board-level strategy with the delivery experience to see it through.</p>
         <div class="hero-cta">
-          <a href="#contact" class="btn btn-primary">Book an introductory call
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <a href="#contact" class="btn btn-primary">Start a conversation
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
-          <a href="#services" class="btn btn-ghost">Explore services</a>
+          <a href="#services" class="btn btn-outline">Explore services
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
         </div>
       </div>
-      <aside class="hero-card">
-        <div class="who">Silvia Diogo</div>
-        <div class="role">MEng (Hons) · MCMI ChMC · MBCS — Founder &amp; Principal</div>
+      <aside class="profile-card reveal">
+        <div class="top">
+          <div class="who">Silvia <b>Diogo</b></div>
+          <div class="role">MEng (Hons) · MCMI ChMC · MBCS — Founder &amp; Principal</div>
+        </div>
         <ul>
-          <li>Former Equity Partner at Deloitte &amp; KPMG</li>
-          <li>21+ years advising C-suite and Boards</li>
-          <li>Financial Services, Insurance &amp; Private Equity</li>
-          <li>AI, Cloud, Data, Customer &amp; Cost transformation</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Former Equity Partner at Deloitte &amp; KPMG</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>21+ years advising C-suite and Boards</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Financial Services, Insurance &amp; Private Equity</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>AI, Cloud, Data, Customer &amp; Cost transformation</li>
         </ul>
       </aside>
     </div>
-    <div class="marquee">
-      <div class="wrap">
-        <span class="label">Two decades across</span>
-        <div class="logos">
+    <div class="wrap">
+      <div class="clientstrip reveal">
+        <span class="lbl">Two decades across</span>
+        <div class="names">
           <span>Deloitte</span>
           <span>KPMG</span>
           <span>IBM</span>
-          <span>Financial Services</span>
-          <span>Insurance</span>
-          <span>Private Equity</span>
+          <span>Deloitte UK</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="wrap about-grid">
-      <div class="reveal">
-        <span class="eyebrow">About</span>
-        <div class="sec-head" style="margin-bottom:28px;">
-          <h2>A senior technology and strategy leader — on your side of the table.</h2>
-        </div>
-        <div class="about-body">
-          <p>I advise C-suite executives and Boards on AI and digital transformation, strategy, and large-scale organisational change across Financial Services, Insurance, Private Equity, and the Public Sector.</p>
-          <p>As a former Equity Partner at Deloitte and KPMG, I bring a rare blend of board-level advisory, hands-on delivery, and deep expertise in AI, customer experience, data, cloud strategy, and automation. I have led end-to-end transformations — from Shared Services and Centre of Excellence design to cost optimisation and digital innovation — helping organisations unlock growth, drive efficiency, and scale with resilience.</p>
-          <p>I work closely with senior leadership teams to align digital and operational agendas with business strategy, strengthen governance, and address risk, compliance, and performance across complex, regulated environments.</p>
-        </div>
+  <!-- STATEMENT -->
+  <div class="statement reveal">
+    <div class="wrap">
+      <span class="eyebrow">The Diogo &amp; Co difference</span>
+      <h2 class="display">Combining board-level advisory with hands-on delivery — across complex, regulated environments.</h2>
+    </div>
+  </div>
+
+  <!-- METRICS BAND -->
+  <section class="band" id="impact">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Track record in numbers</span>
+        <h2 class="display">Two decades of transformation at the market's top tables.</h2>
       </div>
-      <div class="reveal">
-        <div class="credos">
-          <div class="credo"><div class="n">21+</div><div class="t">Years advising in Financial Services &amp; Insurance</div></div>
-          <div class="credo"><div class="n">2×</div><div class="t">Equity Partner — Deloitte &amp; KPMG</div></div>
-          <div class="credo"><div class="n">£M+</div><div class="t">Multi-million-pound transformation programmes led</div></div>
-          <div class="credo"><div class="n">47</div><div class="t">Peer &amp; client recommendations</div></div>
-        </div>
+      <div class="metrics">
+        <div class="metric reveal"><div class="fig">21<b>+</b></div><div class="cap">Years advising in Financial Services &amp; Insurance</div></div>
+        <div class="metric reveal"><div class="fig">2<b>×</b></div><div class="cap">Equity Partner — at both Deloitte &amp; KPMG</div></div>
+        <div class="metric reveal"><div class="fig">65<b>%</b></div><div class="cap">Growth in the Insurance team she built at KPMG</div></div>
+        <div class="metric reveal"><div class="fig">40/60</div><div class="cap">Diversity ratio achieved within that team</div></div>
       </div>
     </div>
   </section>
 
   <!-- SERVICES -->
-  <section id="services" class="alt">
+  <section id="services">
     <div class="wrap">
       <div class="sec-head reveal">
         <span class="eyebrow">Services</span>
-        <h2>Advisory and delivery, from the boardroom to the roadmap.</h2>
+        <h2 class="display">A full suite of services to support transformation, end-to-end.</h2>
         <p>Engagements are shaped around your agenda — vision-setting where you need direction, and hands-on delivery where you need momentum.</p>
       </div>
-      <div class="cards">
-        <div class="card reveal">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+      <div class="svc-grid">
+        <div class="svc reveal">
+          <div class="num">01</div>
           <h3>Technology &amp; Digital Strategy</h3>
-          <p>Vision, enterprise architecture, and operating-model design — with IT cost transformation tied directly to business objectives.</p>
-          <ul>
-            <li>Target Operating Model (business &amp; IT)</li>
-            <li>Enterprise &amp; platform architecture</li>
-            <li>CIO / CTO advisory &amp; roadmaps</li>
-          </ul>
+          <p>Vision, enterprise architecture and operating-model design, with IT cost transformation tied directly to business objectives.</p>
+          <ul><li>Target Operating Model (business &amp; IT)</li><li>Enterprise &amp; platform architecture</li><li>CIO / CTO advisory &amp; roadmaps</li></ul>
         </div>
-        <div class="card reveal">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></div>
+        <div class="svc reveal">
+          <div class="num">02</div>
           <h3>AI &amp; Intelligent Automation</h3>
           <p>Practical AI strategy and delivery — from cognitive claims and customer care to AI-driven optimisation of business and technology processes.</p>
-          <ul>
-            <li>AI strategy, governance &amp; adoption</li>
-            <li>Intelligent &amp; process automation</li>
-            <li>Board training &amp; innovation sessions</li>
-          </ul>
+          <ul><li>AI strategy, governance &amp; adoption</li><li>Intelligent &amp; process automation</li><li>Board training &amp; innovation sessions</li></ul>
         </div>
-        <div class="card reveal">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 15a4 4 0 010-8 5 5 0 019.6-1.5A4.5 4.5 0 0119 15z"/><path d="M9 13l2 2 4-4"/></svg></div>
+        <div class="svc reveal">
+          <div class="num">03</div>
           <h3>Cloud &amp; Data Transformation</h3>
           <p>End-to-end cloud deployment, adoption and optimisation (Cloud FinOps), with data governance and automation for scale and efficiency.</p>
-          <ul>
-            <li>Cloud strategy, migration &amp; FinOps</li>
-            <li>Data governance &amp; analytics</li>
-            <li>DevOps, microservices &amp; modernisation</li>
-          </ul>
+          <ul><li>Cloud strategy, migration &amp; FinOps</li><li>Data governance &amp; analytics</li><li>DevOps, microservices &amp; modernisation</li></ul>
         </div>
-        <div class="card reveal">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <div class="svc reveal">
+          <div class="num">04</div>
           <h3>Operational Resilience &amp; DORA</h3>
           <p>Business continuity, cybersecurity, disaster recovery and compliance aligned to the Digital Operational Resilience Act and ESG requirements.</p>
-          <ul>
-            <li>DORA readiness &amp; assurance</li>
-            <li>Cyber, network &amp; IT governance</li>
-            <li>Third-party &amp; concentration risk</li>
-          </ul>
+          <ul><li>DORA readiness &amp; assurance</li><li>Cyber, network &amp; IT governance</li><li>Third-party &amp; concentration risk</li></ul>
         </div>
-        <div class="card reveal">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <div class="svc reveal">
+          <div class="num">05</div>
           <h3>Cost &amp; Finance Transformation</h3>
-          <p>Traditional cost reduction and AI-driven optimisation across business, technology and cloud spend — plus digital-first finance operating models.</p>
-          <ul>
-            <li>Cost transformation &amp; analysis</li>
-            <li>Shared Services &amp; CoE design</li>
-            <li>Finance modernisation (inc. IFRS 17)</li>
-          </ul>
+          <p>Traditional cost reduction and AI-driven optimisation across business, technology and cloud spend, plus digital-first finance operating models.</p>
+          <ul><li>Cost transformation &amp; analysis</li><li>Shared Services &amp; CoE design</li><li>Finance modernisation (inc. IFRS 17)</li></ul>
         </div>
-        <div class="card reveal">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13A4 4 0 0116 11"/></svg></div>
+        <div class="svc reveal">
+          <div class="num">06</div>
           <h3>M&amp;A &amp; Board Advisory</h3>
           <p>Technology due diligence, integration and carve-out planning, plus strategic guidance to Boards on technology risk, governance and innovation.</p>
-          <ul>
-            <li>Pre- &amp; post-merger integration</li>
-            <li>Technology due diligence &amp; separation</li>
-            <li>Board &amp; CxO advisory sessions</li>
-          </ul>
+          <ul><li>Pre- &amp; post-merger integration</li><li>Technology due diligence &amp; separation</li><li>Board &amp; CxO advisory sessions</li></ul>
         </div>
       </div>
     </div>
   </section>
 
   <!-- EXPERTISE -->
-  <section id="expertise">
+  <section id="expertise" style="background:var(--porcelain-2);">
     <div class="wrap">
       <div class="sec-head reveal">
         <span class="eyebrow">Core Expertise</span>
-        <h2>Depth where regulated, complex change demands it.</h2>
+        <h2 class="display">Depth where regulated, complex change demands it.</h2>
       </div>
       <div class="pills reveal">
         <span class="pill">Strategy &amp; Operating Model Design</span>
@@ -461,7 +440,6 @@
         <span class="pill">M&amp;A Integration &amp; Carve-outs</span>
         <span class="pill">Cybersecurity &amp; IT Governance</span>
         <span class="pill">API &amp; Platform Architecture</span>
-        <span class="pill">Outsourcing &amp; Offshoring</span>
         <span class="pill">Operational Resilience &amp; DORA</span>
         <span class="pill">Insurtech &amp; Innovation</span>
         <span class="pill">Thought Leadership &amp; Public Speaking</span>
@@ -469,78 +447,103 @@
     </div>
   </section>
 
-  <!-- METRICS BAND -->
-  <section class="band">
-    <div class="wrap metrics">
-      <div class="metric reveal"><div class="fig">21<span>+</span></div><div class="cap">Years in Financial Services &amp; Insurance</div></div>
-      <div class="metric reveal"><div class="fig">65<span>%</span></div><div class="cap">Growth in the TT Insurance team she built at KPMG</div></div>
-      <div class="metric reveal"><div class="fig">40/60</div><div class="cap">Diversity ratio achieved in that team</div></div>
-      <div class="metric reveal"><div class="fig">6.7<span>k</span></div><div class="cap">Followers engaging with her industry thinking</div></div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience" class="alt">
+  <!-- TRACK RECORD -->
+  <section id="experience">
     <div class="wrap">
       <div class="sec-head reveal">
         <span class="eyebrow">Track Record</span>
-        <h2>Two decades leading transformation at the market's top tables.</h2>
+        <h2 class="display">Selected experience.</h2>
+        <p>Two decades leading complex, global transformation for market-leading insurers and Financial Services firms.</p>
       </div>
-      <div class="timeline">
-        <div class="tl-item reveal">
+      <div class="cases">
+        <div class="case reveal">
           <div class="yr">2023 — Present</div>
-          <h3>Founder &amp; Principal</h3>
-          <div class="org">Diogo &amp; Co · London</div>
-          <p>Reimagining consulting: advisory and delivery for ExCos, Boards and leadership teams on technology strategy, cloud &amp; data, cost transformation, operational resilience (DORA), customer journeys and M&amp;A integration.</p>
+          <div>
+            <h3>Founder &amp; Principal</h3>
+            <div class="org">Diogo &amp; Co · London</div>
+            <p>Advisory and delivery for ExCos, Boards and leadership teams on technology strategy, cloud &amp; data, cost transformation, operational resilience (DORA), customer journeys and M&amp;A integration.</p>
+          </div>
+          <div class="side">Founder</div>
         </div>
-        <div class="tl-item reveal">
+        <div class="case reveal">
           <div class="yr">2023 — 2024</div>
-          <h3>Technology Strategy &amp; Transformation Partner, Financial Services</h3>
-          <div class="org">Deloitte · Netherlands</div>
-          <p>Led the Data, Architecture and Cloud Transformation teams and acted as lead technology partner for major Dutch insurers — driving cost transformation, AI initiatives, digital marketing &amp; lead generation, and broker &amp; claims strategy.</p>
+          <div>
+            <h3>Technology Strategy &amp; Transformation Partner, FS</h3>
+            <div class="org">Deloitte · Netherlands</div>
+            <p>Led the Data, Architecture and Cloud Transformation teams and acted as lead technology partner for major Dutch insurers — driving cost transformation, AI initiatives, and broker &amp; claims strategy.</p>
+          </div>
+          <div class="side">Partner</div>
         </div>
-        <div class="tl-item reveal">
+        <div class="case reveal">
           <div class="yr">2021 — 2023</div>
-          <h3>Partner — Technology Strategy, Innovation &amp; Transformation</h3>
-          <div class="org">KPMG · London</div>
-          <p>Grew the TT Insurance team by 65% at a 40/60 diversity ratio, secured multi-million-pound engagements, and led finance, underwriting and claims modernisation on Microsoft cloud and security services.</p>
+          <div>
+            <h3>Partner — Technology Strategy, Innovation &amp; Transformation</h3>
+            <div class="org">KPMG · London</div>
+            <p>Grew the TT Insurance team by 65% at a 40/60 diversity ratio, secured multi-million-pound engagements, and led finance, underwriting and claims modernisation on Microsoft cloud &amp; security services.</p>
+          </div>
+          <div class="side">Partner</div>
         </div>
-        <div class="tl-item reveal">
+        <div class="case reveal">
           <div class="yr">2019 — 2021</div>
-          <h3>Associate Partner — Strategy, Architecture &amp; Cloud Advisory</h3>
-          <div class="org">IBM · London</div>
-          <p>Led Salesforce Consulting for Insurance and advised the C-suite on cognitive claims (chatbot &amp; AI), cloud strategy &amp; migration, data &amp; analytics, and operational resilience — negotiating global framework agreements.</p>
+          <div>
+            <h3>Associate Partner — Strategy, Architecture &amp; Cloud Advisory</h3>
+            <div class="org">IBM · London</div>
+            <p>Led Salesforce Consulting for Insurance and advised the C-suite on cognitive claims (chatbot &amp; AI), cloud strategy &amp; migration, data &amp; analytics, and operational resilience — negotiating global framework agreements.</p>
+          </div>
+          <div class="side">Assoc. Partner</div>
         </div>
-        <div class="tl-item reveal">
+        <div class="case reveal">
           <div class="yr">2012 — 2019</div>
-          <h3>Senior Manager — Technology Strategy &amp; Architecture, Cloud</h3>
-          <div class="org">Deloitte UK · London</div>
-          <p>Partnered with CIOs on complex, global transformations at market-leading insurers — M&amp;A IT strategy &amp; due diligence, finance transformation (inc. IFRS 17), application rationalisation and cloud readiness.</p>
+          <div>
+            <h3>Senior Manager — Technology Strategy &amp; Architecture, Cloud</h3>
+            <div class="org">Deloitte UK · London</div>
+            <p>Partnered with CIOs on complex, global transformations at market-leading insurers — M&amp;A IT strategy &amp; due diligence, finance transformation (inc. IFRS 17), application rationalisation and cloud readiness.</p>
+          </div>
+          <div class="side">Snr Manager</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section id="voices">
+  <!-- ABOUT -->
+  <section id="about" style="background:var(--porcelain-2);">
+    <div class="wrap about-grid">
+      <div class="reveal">
+        <span class="eyebrow">About</span>
+        <div class="about-body" style="margin-top:22px;">
+          <p class="big">Diogo &amp; Co is a specialist Financial Services advisory — a senior technology and strategy leader <b>on your side of the table</b>.</p>
+          <p>Silvia advises C-suite executives and Boards on AI and digital transformation, strategy, and large-scale organisational change across Financial Services, Insurance, Private Equity and the Public Sector.</p>
+          <p>As a former Equity Partner at Deloitte and KPMG, she brings a rare blend of board-level advisory, hands-on delivery, and deep expertise in AI, customer experience, data, cloud strategy and automation — from Shared Services and Centre of Excellence design to cost optimisation and digital innovation.</p>
+        </div>
+      </div>
+      <div class="quote-block reveal">
+        <div class="mk">&ldquo;</div>
+        <p>Silvia has deep technical knowledge, brings together high-performing teams, and looks to build a true partnership with her clients. Her input was invaluable in driving our programme forward.</p>
+        <div class="by">Tim Thompson<span>Fractional &amp; Interim CTO / CIO / COO — former client</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECOGNITION -->
+  <section id="recognition" class="rec">
     <div class="wrap">
       <div class="sec-head reveal">
         <span class="eyebrow">Recognition</span>
-        <h2>What clients and colleagues say.</h2>
+        <h2 class="display">What clients say — and how the industry recognises it.</h2>
       </div>
-      <div class="quotes">
-        <figure class="quote reveal">
-          <div class="mark">&ldquo;</div>
-          <p>Silvia has deep technical knowledge, brings together high-performing teams, and looks to build a true partnership with her clients. Her input was invaluable in driving our programme forward — allowing us to meet highly ambitious timelines.</p>
-          <figcaption class="by">Tim Thompson <span>Fractional &amp; Interim CTO / CIO / COO — former client</span></figcaption>
-        </figure>
-        <figure class="quote reveal">
-          <div class="mark">&ldquo;</div>
+      <div class="awards">
+        <figure class="award reveal">
+          <div class="mk">&ldquo;</div>
           <p>You always know where you stand with Silvia. As straight as a die and thoroughly professional to boot — a pleasure to work with. I can't recommend her highly enough.</p>
-          <figcaption class="by">Chris Byers <span>Driving SaaS Solutions &amp; Account Management Excellence</span></figcaption>
+          <figcaption class="by">Chris Byers<span>Driving SaaS Solutions &amp; Account Management Excellence</span></figcaption>
+        </figure>
+        <figure class="award reveal">
+          <div class="mk">&ldquo;</div>
+          <p>Worked in true partnership with our internal team, providing industry knowledge and insight that let us meet highly ambitious timelines. A deep technical partner.</p>
+          <figcaption class="by">Tim Thompson<span>Fractional &amp; Interim CTO / CIO / COO</span></figcaption>
         </figure>
       </div>
-      <div class="pills reveal" style="margin-top:34px;">
+      <div class="pills reveal">
         <span class="pill">Insurance Leader of the Year — shortlisted, Women in Finance</span>
         <span class="pill">Digital Transformation Leader of the Year</span>
         <span class="pill">MCMI ChMC — Chartered Management Consultant</span>
@@ -554,11 +557,11 @@
   <section id="contact" class="contact">
     <div class="wrap contact-grid">
       <div class="reveal">
-        <span class="eyebrow">Start a conversation</span>
-        <h2>Let's talk about your <em>transformation</em>.</h2>
+        <span class="eyebrow">Get in touch</span>
+        <h2 class="display">Let's talk about your transformation.</h2>
         <p class="lede">Whether you need a board-level sounding board, a strategy you can act on, or a delivery partner who has done it before — a short conversation is the best place to start.</p>
         <div class="detail">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
           <span>hello@diogoandco.com</span>
         </div>
         <div class="detail">
@@ -588,7 +591,7 @@
           <textarea id="msg" name="msg" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Send enquiry
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </button>
         <p class="note">Your details are used only to respond to your enquiry.</p>
       </form>
@@ -599,9 +602,9 @@
   <footer class="site">
     <div class="wrap">
       <div class="foot-inner">
-        <a href="#top" class="brand" style="color:#fff;">
-          <span class="mark">Diogo <span class="amp" style="color:var(--gold-soft);">&amp;</span> Co</span>
-          <span class="sub" style="color:#6b7783;">Advisory</span>
+        <a href="#top" class="brand">
+          <span class="mark">Diogo <span class="amp" style="color:var(--copper);">&amp;</span> <b>Co</b></span>
+          <span class="sub">Advisory</span>
         </a>
         <nav class="foot-links">
           <a href="#about">About</a>
@@ -611,14 +614,13 @@
         </nav>
       </div>
       <div class="foot-legal">
-        <span>&copy; <span id="year"></span> Diogo &amp; Co. Technology Strategy, Digital &amp; AI Transformation.</span>
+        <span>&copy; <span id="year"></span> Diogo &amp; Co. Technology, Digital &amp; AI Transformation.</span>
         <span>London, United Kingdom</span>
       </div>
     </div>
   </footer>
 
   <script>
-    // Mobile menu
     var toggle = document.getElementById('menuToggle');
     var links = document.getElementById('navlinks');
     toggle.addEventListener('click', function () {
@@ -626,18 +628,25 @@
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
     links.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') { links.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
+      if (e.target.tagName === 'A' || e.target.closest('a')) { links.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
     });
 
-    // Scroll reveal
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      entries.forEach(function (en, i) {
+        if (en.isIntersecting) {
+          en.target.style.transitionDelay = Math.min(en.target.__d || 0, 240) + 'ms';
+          en.target.classList.add('in');
+          io.unobserve(en.target);
+        }
       });
-    }, { threshold: 0.14 });
-    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+    }, { threshold: 0.12 });
+    // stagger reveals within a shared parent
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      var sibs = el.parentElement ? [].indexOf.call(el.parentElement.children, el) : 0;
+      el.__d = (sibs % 4) * 80;
+      io.observe(el);
+    });
 
-    // Contact form (front-end only — wire to a backend or mailto as needed)
     var form = document.getElementById('contactForm');
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -650,7 +659,6 @@
       window.location.href = 'mailto:hello@diogoandco.com?subject=' + subject + '&body=' + body;
     });
 
-    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
